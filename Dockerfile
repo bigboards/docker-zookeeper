@@ -5,7 +5,10 @@ MAINTAINER bigboards (hello@bigboards.io)
 # Install Zookeeper.
 RUN \
   apt-get update && \
-  apt-get install -y zookeeper=3.4.5+dfsg-1
+  apt-get install -y zookeeper=3.4.5+dfsg-1 && \
+  apt-get clean && \
+  apt-get autoclean && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/*
 
 # Define default command.
 CMD ["/bin/bash"]
